@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Add Student</h1>
+    </header>
+
+    <nav class="navbar">
+        <a th:href="@{/}" class="nav-link">Home</a>
+        <a th:href="@{/students}" class="nav-link">Student List</a>
+        <a th:href="@{/add-student}" class="nav-link active">Add Student</a>
+    </nav>
+
+    <main>
+        <div class="form-container">
+            <form th:action="@{/add-student}" th:object="${student}" method="post" class="student-form">
+                <div class="form-group">
+                    <label for="name">NAME:</label>
+                    <input type="text" id="name" th:field="*{name}"
+                           placeholder="Insert name" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="surname">SURNAME:</label>
+                    <input type="text" id="surname" th:field="*{surname}"
+                           placeholder="Insert surname" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="exam">EXAM:</label>
+                    <input type="number" id="exam" th:field="*{exam}"
+                           placeholder="Insert exam" class="form-input"
+                           min="0" max="100" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large">ADD STUDENT</button>
+            </form>
+        </div>
+    </main>
+</div>
+</body>
+</html>

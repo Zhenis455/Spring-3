@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Student Management System</h1>
+    </header>
+
+    <nav class="navbar">
+        <a th:href="@{/}" class="nav-link active">Home</a>
+        <a th:href="@{/students}" class="nav-link">Student List</a>
+        <a th:href="@{/add-student}" class="nav-link">Add Student</a>
+    </nav>
+
+    <main>
+        <div class="welcome-section">
+            <h2>Welcome to Student Exam Results Management</h2>
+            <p>Manage student information and exam results efficiently.</p>
+            <div class="action-buttons">
+                <a th:href="@{/students}" class="btn btn-primary">View All Students</a>
+                <a th:href="@{/add-student}" class="btn btn-secondary">Add New Student</a>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>

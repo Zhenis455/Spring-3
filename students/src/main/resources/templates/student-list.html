@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Student List</h1>
+    </header>
+
+    <nav class="navbar">
+        <a th:href="@{/}" class="nav-link">Home</a>
+        <a th:href="@{/students}" class="nav-link active">Student List</a>
+        <a th:href="@{/add-student}" class="nav-link">Add Student</a>
+    </nav>
+
+    <main>
+        <div class="search-section">
+            <form th:action="@{/students}" method="get" class="search-form">
+                <input type="text" name="search" th:value="${search}"
+                       placeholder="Search by name or surname" class="search-input">
+                <button type="submit" class="btn btn-primary">Search</button>
+                <a th:href="@{/students}" class="btn btn-secondary">Clear</a>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <table class="student-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>SURNAME</th>
+                    <th>EXAM</th>
+                    <th>MARK</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="student : ${students}"
+                    th:class="${student.failed} ? 'failed' : ''">
+                    <td th:text="${student.id}"></td>
+                    <td th:text="${student.name}"></td>
+                    <td th:text="${student.surname}"></td>
+                    <td th:text="${student.exam}"></td>
+                    <td th:text="${student.mark}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+</body>
+</html>
